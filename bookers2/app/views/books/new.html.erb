@@ -38,12 +38,12 @@
 
 
 <h1>Books</h1>
-<% @users.each do |user| %>
-  <% user.books.each do |book| %>
+  <% @books.each do |book| %>
     <div>
+      <%= link_to user_path(book.user.id) do %>
       <p>image: <%= image_tag book.user.profile_image, size: "100x100" %></p>
+      <% end %>
       <p><%= link_to book.title, book_path(book) %></p>
       <p>Opinion: <%= book.body %></p>
     </div>
   <% end %>
-<% end %>

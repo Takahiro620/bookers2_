@@ -12,7 +12,17 @@
   </head>
 
   <body>
-    <header>
+    <header
+      
+      <div class="flash-notifications">
+        <% flash.each do |key, value| %>
+         <%= content_tag(:div, value, class: key) %>
+        <% end %>
+      </div>
+      
+      
+      
+      
       <%= link_to "Bookers","/"%>
       <% if user_signed_in? %>
         <li>

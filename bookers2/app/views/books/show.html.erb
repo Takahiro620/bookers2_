@@ -4,9 +4,10 @@
   <h3>name:<%= @books.user.name  %></h3>
   <h3>introduction:<%= @books.user.introduction %></h3>
   <%= image_tag @books.user.get_profile_image(100,100) %>
-  <% if @books.user == current_user %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@books.user) %></p>
-  <% end %>
+
+  <p><%= link_to "プロフィール編集", edit_user_path(@books.user) %></p>
+
+  
 </div>
 
 
@@ -47,10 +48,12 @@
   <h1>Book detail</h1>
   <p>Title：<%= @books.title %></p>
   <p>Opinion：<%= @books.body %></p>
+  <%= link_to user_path(@books.user.id) do %>
   <p>投稿ユーザー画像：<%= image_tag @books.user.get_profile_image(100,100) %></p>
   <p>ユーザーネーム：<%= @books.user.name %></p>
+  <% end %>
   <% if @books.user == current_user %>
-    <p><%= link_to "edit", edit_book_path(@books) %></p>
-    <%= link_to "destroy", book_path(@books), method: :delete %>
+    <p><%= link_to "Edit", edit_book_path(@books) %></p>
+    <%= link_to "Destroy", book_path(@books), method: :delete %>
   <% end %>
 </div>
