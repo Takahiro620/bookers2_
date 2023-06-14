@@ -1,10 +1,28 @@
 <h1>User info</h1>
 
-<!-- ユーザーの詳細 -->
 <div>
-  <h3>Name:<%= @user.name %></h3>
-  <h3>Introduction:<%= @user.introduction %></h3>
+  <h2>User info</h2>
   <%= image_tag @user.get_profile_image(100,100) %>
-  <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-</div>
+  <table class="table">
+  <tr>
+    <th>name</th>
+    <th><%= @user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= @user.introduction %></th>
+  </tr>
+  </table>
+  
 
+  <div class="row">
+    <%= link_to edit_user_path(@user) do %>
+    <div class="btn btn-outline-secondary btn-block edit_user_112075">
+      <i class="fas fa-user-cog" aria-hidden="true">
+      </i>
+    </dvi>
+    <% end %>
+  </div>
+
+
+</div>
