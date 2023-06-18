@@ -41,7 +41,11 @@
   <% @books.each do |book| %>
     <div>
       <%= link_to user_path(book.user.id) do %>
-      <p>image: <%= image_tag book.user.profile_image, size: "100x100" %></p>
+        <% if book.user.profile_image.present? %>
+          <%= image_tag book.user.profile_image, size: "100x100" %>
+        <% else %>
+          <%= image_tag "sample-author1.jpg", size: "100x100" %>
+        <% end %>
       <% end %>
       <p><%= link_to book.title, book_path(book) %></p>
       <p>Opinion: <%= book.body %></p>
